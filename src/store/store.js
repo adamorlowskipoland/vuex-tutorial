@@ -26,9 +26,12 @@ export const store = new Vuex.Store({
   },
   mutations: {
     reducePrice (state) {
-      state.products.forEach( product => {
-        product.price -= 1
-      })
+      //  there shouldn't be any asynchronous code in mutations
+      setTimeout(() => {
+        state.products.forEach( product => {
+          product.price -= 1
+        })
+      }, 3000)
     }
   }
 })
