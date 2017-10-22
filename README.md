@@ -2,8 +2,6 @@
 
  building vuex-playlist with netninja
 
-## Build Setup
-bash
 # install dependencies
 npm install
 
