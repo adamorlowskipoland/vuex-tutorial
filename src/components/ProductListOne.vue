@@ -7,7 +7,7 @@
         <span class="price">€{{ product.price }}</span>
       </li>
     </ul>
-    <button @click="reducePrice">Reduce Price</button>
+    <button @click="reducePrice(4)">Reduce Price</button>
   </div>
 </template>
 
@@ -22,11 +22,9 @@
       }
     },
     methods: {
-      reducePrice () {
-//        any mutations shouldn't be done directly as well as changing state directly
-//        that's way we use action - which calls mutations, which change state
-//        actions can be asynchronous
-        this.$store.dispatch('reducePrice')
+      reducePrice (amount) {
+//        it's good to always using actions to call mutations, even if there is no asynchronous code
+        this.$store.dispatch('reducePrice', amount)
       }
     }
   }
