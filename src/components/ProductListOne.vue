@@ -7,25 +7,27 @@
         <span class="price">€{{ product.price }}</span>
       </li>
     </ul>
-    <button @click="reducePrice(4)">Reduce Price</button>
+    <button @click="reducePrice(8)">Reduce Price</button>
   </div>
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
+  import {mapGetters} from 'vuex'
+
   export default {
     computed: {
       products () {
         return this.$store.state.products
       },
-      saleProducts () {
-        return this.$store.getters.saleProducts
-      }
+      ...mapGetters([
+        'saleProducts'
+      ])
     },
     methods: {
-      reducePrice (amount) {
-//        it's good to always using actions to call mutations, even if there is no asynchronous code
-        this.$store.dispatch('reducePrice', amount)
-      }
+      ...mapActions([
+        'reducePrice'
+      ])
     }
   }
 </script>
