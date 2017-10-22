@@ -23,7 +23,10 @@
     },
     methods: {
       reducePrice () {
-        this.$store.commit('reducePrice')
+//        any mutations shouldn't be done directly as well as changing state directly
+//        that's way we use action - which calls mutations, which change state
+//        actions can be asynchronous
+        this.$store.dispatch('reducePrice')
       }
     }
   }
