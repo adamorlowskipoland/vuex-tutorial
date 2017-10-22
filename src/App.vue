@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <product-list-one></product-list-one>
-    <product-list-two></product-list-two>
+    <product-list-one :products="products"></product-list-one>
+    <product-list-two :products="products"></product-list-two>
   </div>
 </template>
 
@@ -29,5 +29,8 @@
 </script>
 
 <style lang="scss">
-
+  body {
+    font-family: Ubuntu;
+    color: #555;
+  }
 </style>
